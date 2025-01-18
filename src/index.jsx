@@ -1,4 +1,7 @@
 const container = document.getElementById("root");
+let h1 = document.createElement("h1");
+h1.setAttribute("title", "");
+h1.textContent = "";
 
 function createElement(type, props, ...children) {
   return {
@@ -32,6 +35,7 @@ function render(element, container) {
     .forEach((name) => {
       domNode[name] = element.props[name];
     });
+
   element.props.children.forEach((child) => {
     render(child, domNode);
   });
@@ -39,19 +43,17 @@ function render(element, container) {
   container.appendChild(domNode);
 }
 
+let nextUnitOfWork = null;
+
+function workLoop(deadline) {}
+
 const MiniReactLibrary = { createElement, render };
 
 /** @jsx MiniReactLibrary.createElement */
-MiniReactLibrary.createElement(
-  "div",
-  { id: "foo" },
-  MiniReactLibrary.createElement("a", {}, "Hello world")
-);
-
-// /** @jsx MiniReactLibrary.createElement */
 const element = (
   <div id="foo">
     <a>Hello world</a>
+    <h1>Testing the new react feature</h1>
   </div>
 );
 

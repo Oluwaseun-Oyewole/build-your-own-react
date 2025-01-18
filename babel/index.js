@@ -1,7 +1,5 @@
 const container = document.getElementById("root");
 function createElement(type, props, ...children) {
-  console.log("children", children);
-  console.log("props", props);
   return {
     type,
     props: {
@@ -11,7 +9,6 @@ function createElement(type, props, ...children) {
   };
 }
 function createTextNode(text) {
-  console.log("text node -- ", text);
   return {
     type: "TEXT_ELEMENT",
     props: {
@@ -22,8 +19,6 @@ function createTextNode(text) {
 }
 function render(element, container) {
   const domNode = element.type === "TEXT_ELEMENT" ? document.createTextNode("") : document.createElement(element.type);
-  console.log("dom node", domNode);
-  console.log("Object keys", Object.keys(element));
   Object.keys(element.props).filter(key => key !== "children").forEach(name => {
     domNode[name] = element.props[name];
   });
@@ -38,12 +33,7 @@ const MiniReactLibrary = {
 };
 
 /** @jsx MiniReactLibrary.createElement */
-MiniReactLibrary.createElement("div", {
-  id: "foo"
-}, MiniReactLibrary.createElement("a", {}, "Hello world"));
-
-// /** @jsx MiniReactLibrary.createElement */
 const element = MiniReactLibrary.createElement("div", {
   id: "foo"
-}, MiniReactLibrary.createElement("a", null, "Hello world"));
+}, MiniReactLibrary.createElement("a", null, "Hello world"), MiniReactLibrary.createElement("h1", null, "Testing the new react feature"));
 MiniReactLibrary.render(element, container);
