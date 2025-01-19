@@ -4,9 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Build Your React</title>
+
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      .parallax {
+        height: 100vh;
+        position: relative;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .parallax-1 {
+        background-image: url("https://www.pexels.com/photo/a-person-pouring-hot-water-on-teacups-from-the-teapot-8952192/");
+      }
+
+      .parallax-2 {
+        background-image: url("https://www.pexels.com/photo/a-person-pouring-hot-water-on-teacups-from-the-teapot-8952192/");
+      }
+
+      .content {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f4f4f4;
+        font-family: Arial, sans-serif;
+        font-size: 2rem;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
+    <div class="parallax parallax-1"></div>
+    <div class="content">Content Section 1</div>
+    <div class="parallax parallax-2"></div>
+    <div class="content">Content Section 2</div>
+    <script></script>
     <div id="root"></div>
-    <script src="../babel/index.js"></script>
+    <script src="../src/hooks.js"></script>
+    <!-- <script src="../babel/index.js"></script> -->
   </body>
 </html>
